@@ -1,4 +1,5 @@
 package org.example;
+
 import org.example.service.impl.LexicalAnalysisImpl;
 import org.example.service.impl.SyntaxAnalysisImpl;
 
@@ -19,7 +20,7 @@ public class Main {
         }
         scanner.close();
 
-        LexicalAnalysisImpl analyzeLexical=new LexicalAnalysisImpl(); //实例化词法分析
+        LexicalAnalysisImpl analyzeLexical = new LexicalAnalysisImpl(); //实例化词法分析
         SyntaxAnalysisImpl analyzeSyntax = new SyntaxAnalysisImpl();  //实例化语法分析
 
         SyntaxAnalysisImpl.setTokens(analyzeLexical.analyzeLexically(code.toString()));

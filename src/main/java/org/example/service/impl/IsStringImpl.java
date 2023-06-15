@@ -4,14 +4,15 @@ import org.example.service.IsString;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /**
-	* @Description:    判断是否是哪一类字符串，关键字，标识符等
-	* @Author:         RiverMountain
-	* @CreateDate:
-	* @UpdateUser:     RiverMountain
-	* @UpdateDate:     2023/6/15 0:20
-	* @Version:        1.0
-	*/
+ * @Description: 判断是否是哪一类字符串，关键字，标识符等
+ * @Author: RiverMountain
+ * @CreateDate:
+ * @UpdateUser: RiverMountain
+ * @UpdateDate: 2023/6/15 0:20
+ * @Version: 1.0
+ */
 public class IsStringImpl implements IsString {
     private static final String[] KEYWORDS = {
             "const", "var", "procedure", "begin", "if", "then", "while", "do", "call", "read", "write"
@@ -39,6 +40,7 @@ public class IsStringImpl implements IsString {
         Matcher matcher = COMMENT_PATTERN.matcher(line);
         return matcher.find();
     }
+
     public boolean isKeyword(String token) {
         for (String keyword : KEYWORDS) {
             if (keyword.equals(token)) {
@@ -47,6 +49,7 @@ public class IsStringImpl implements IsString {
         }
         return false;
     }
+
     public boolean isValidIdentifier(String token) {
         Matcher matcher = IDENTIFIER_PATTERN.matcher(token);
         return matcher.matches();
@@ -73,6 +76,7 @@ public class IsStringImpl implements IsString {
         }
         return false;
     }
+
     public boolean isTwoOperator(String ch) {//加减乘除
         for (String operator : OPERATORS1) {
             if (operator.contains(ch)) {
@@ -81,6 +85,7 @@ public class IsStringImpl implements IsString {
         }
         return false;
     }
+
     public boolean isTwoRelationship(String ch) {//两变量关系
         for (String operator : OPERATORS2) {
             if (operator.contains(ch)) {
@@ -89,6 +94,7 @@ public class IsStringImpl implements IsString {
         }
         return false;
     }
+
     public boolean isTwoCharOperator(String token) {
         for (String operator : OPERATORS) {
             if (operator.equals(token)) {

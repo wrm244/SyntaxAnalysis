@@ -4,34 +4,37 @@ import org.example.service.LexicalAnalysis;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /**
- * @Description:    词法分析类，用于把字符串表存放到待分析的tokens数组中
- * @Author:         RiverMountain
+ * @Description: 词法分析类，用于把字符串表存放到待分析的tokens数组中
+ * @Author: RiverMountain
  * @CreateDate:
- * @UpdateUser:     RiverMountain
- * @UpdateDate:     2023/6/15 0:20
- * @Version:        1.0
+ * @UpdateUser: RiverMountain
+ * @UpdateDate: 2023/6/15 0:20
+ * @Version: 1.0
  */
 public class LexicalAnalysisImpl extends IsStringImpl implements LexicalAnalysis {
     public LexicalAnalysisImpl() {
     }
+
     private static final Pattern ILLEGAL_CHAR_PATTERN = Pattern.compile("[^\\w\\s]");
+
     /**
      * <h3>词法分析方法，用于把单词符号表存放到待分析的tokens数组中</h3>
-     * @author RiverMountain
+     *
      * @param code
+     * @return <p>
+     * tokens
+     * </p>
+     * @author RiverMountain
      * @date 2023/6/15 1:35
-     * @return
-     *         <p>
-     *         tokens
-     *         </p>
      */
     public String[] analyzeLexically(String code) {
         // 进行词法分析的代码
         // 返回词法分析结果的字符串数组
         String[] tokens = new String[300];
         int j = 1;
-        tokens[0]="\n";
+        tokens[0] = "\n";
         String[] lines = code.split("\\n");
         boolean insideComment = false;
         for (int lineNumber = 0; lineNumber < lines.length; lineNumber++) {

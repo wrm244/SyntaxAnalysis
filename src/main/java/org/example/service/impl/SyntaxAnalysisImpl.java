@@ -3,13 +3,14 @@ package org.example.service.impl;
 import org.example.service.SyntaxAnalysis;
 
 import java.util.Objects;
+
 /**
- * @Description:    语法分析类,对词法分析产生的单词符号表tokens进行分析
- * @Author:         RiverMountain
+ * @Description: 语法分析类, 对词法分析产生的单词符号表tokens进行分析
+ * @Author: RiverMountain
  * @CreateDate:
- * @UpdateUser:     RiverMountain
- * @UpdateDate:     2023/6/15 0:20
- * @Version:        1.0
+ * @UpdateUser: RiverMountain
+ * @UpdateDate: 2023/6/15 0:20
+ * @Version: 1.0
  */
 public class SyntaxAnalysisImpl extends IsStringImpl implements SyntaxAnalysis {
     private static int currentTokenIndex = 1;
@@ -26,13 +27,13 @@ public class SyntaxAnalysisImpl extends IsStringImpl implements SyntaxAnalysis {
 
     /**
      * <h3>返回是否有错误产生，因为要分析每一行代码，所以在分析后要模拟规约，如果分析过程有错误产生则不用打印语法正确</h3>
-     * @author RiverMountain
+     *
      * @param
+     * @return <p>
+     * 返回是否有错误产生
+     * </p>
+     * @author RiverMountain
      * @date 2023/6/15 1:47
-     * @return
-     *         <p>
-     *         返回是否有错误产生
-     *         </p>
      */
     public static boolean getIfReportSyntaxError() {
         return ifReportSyntaxError;
@@ -267,6 +268,7 @@ public class SyntaxAnalysisImpl extends IsStringImpl implements SyntaxAnalysis {
             }
 
         }
+        reportSyntaxError();
         return false;
     }
 
